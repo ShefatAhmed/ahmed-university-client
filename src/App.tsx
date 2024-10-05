@@ -1,8 +1,8 @@
+import MainLayout from "./components/layout/MainLayout"
+
 function App() {
   return (
-    <>
-      <h1>Ahmed University Management System</h1>
-    </>
+    <MainLayout />
   )
 }
 
