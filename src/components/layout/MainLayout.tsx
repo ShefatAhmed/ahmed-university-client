@@ -1,15 +1,7 @@
 import { Layout, Menu } from 'antd';
 const { Header, Content, Footer, Sider } = Layout;
-import { UploadOutlined, UserOutlined, VideoCameraOutlined } from '@ant-design/icons';
-import { createElement } from 'react';
 import { Outlet } from 'react-router-dom';
-const items = [UserOutlined, VideoCameraOutlined, UploadOutlined, UserOutlined].map(
-    (icon, index) => ({
-        key: String(index + 1),
-        icon: createElement(icon),
-        label: `nav ${index + 1}`,
-    }),
-);
+import { adminSidberItems } from '../../routes/admin.routes';
 const MainLayout = () => {
     return (
         <Layout style={{ height: "100vh" }}>
@@ -26,7 +18,7 @@ const MainLayout = () => {
                 <div style={{ color: "white", textAlign: "center", height: "4rem", display: "flex", alignItems: "center", justifyContent: "center" }}>
                     <h1>Ahmed University</h1>
                 </div>
-                <Menu theme="dark" mode="inline" defaultSelectedKeys={['4']} items={items} />
+                <Menu theme="dark" mode="inline" defaultSelectedKeys={['4']} items={adminSidberItems} />
             </Sider>
             <Layout>
                 <Header style={{ padding: 0 }} />
