@@ -22,7 +22,9 @@ const MainLayout = () => {
                     console.log(collapsed, type);
                 }}
             >
-                <div className="demo-logo-vertical" />
+                <div style={{color: "white", textAlign: "center", height: "4rem", display: "flex", alignItems: "center", justifyContent: "center"}}>
+                    <h1>Ahmed University</h1>
+                </div>
                 <Menu theme="dark" mode="inline" defaultSelectedKeys={['4']} items={items} />
             </Sider>
             <Layout>
