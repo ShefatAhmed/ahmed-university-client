@@ -2,6 +2,7 @@ import { Layout, Menu } from 'antd';
 const { Header, Content, Footer, Sider } = Layout;
 import { UploadOutlined, UserOutlined, VideoCameraOutlined } from '@ant-design/icons';
 import { createElement } from 'react';
+import { Outlet } from 'react-router-dom';
 const items = [UserOutlined, VideoCameraOutlined, UploadOutlined, UserOutlined].map(
     (icon, index) => ({
         key: String(index + 1),
@@ -22,7 +23,7 @@ const MainLayout = () => {
                     console.log(collapsed, type);
                 }}
             >
-                <div style={{color: "white", textAlign: "center", height: "4rem", display: "flex", alignItems: "center", justifyContent: "center"}}>
+                <div style={{ color: "white", textAlign: "center", height: "4rem", display: "flex", alignItems: "center", justifyContent: "center" }}>
                     <h1>Ahmed University</h1>
                 </div>
                 <Menu theme="dark" mode="inline" defaultSelectedKeys={['4']} items={items} />
@@ -36,7 +37,7 @@ const MainLayout = () => {
                             minHeight: 360,
                         }}
                     >
-                        The main content should go here
+                        <Outlet />
                     </div>
                 </Content>
                 <Footer style={{ textAlign: 'center' }}>
