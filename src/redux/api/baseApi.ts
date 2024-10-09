@@ -13,10 +13,15 @@ const baseQuery = fetchBaseQuery({
     }
 })
 
-const baseQueryWithRefreshToken: BaseQueryFn<FetchArgs, BaseQueryApi, DefinitionType> = async (args, api, extraOptions) : Promise<any> => {
+const baseQueryWithRefreshToken: BaseQueryFn<FetchArgs, BaseQueryApi, DefinitionType> = async (args, api, extraOptions): Promise<any> => {
     let result = await baseQuery(args, api, extraOptions)
-    if(result.error?.status == 404){
-        toast.error("User not found")
+    if (result?.error?.status === 404) {
+        const errorData = result.error.data as { message: string };
+        toast.error(errorData.message);
+    }
+    if (result?.error?.status === 403) {
+        const errorData = result.error.data as { message: string };
+        toast.error(errorData.message);
     }
     if (result.error?.status == 401) {
         const res = await fetch("http://localhost:3000/api/v1/auth/refresh-token", {
