@@ -33,7 +33,7 @@ const Login = () => {
       dispatch(setUser({ user: user, token: res.data.accessToken }))
       toast.success("logged in", { id: toastId, duration: 2000 })
       navigate(`/${user.role}/dashboard`)
-    } catch (err) {
+    } catch {
       toast.error("something went wrong", { id: toastId, duration: 2000 })
     }
   }
