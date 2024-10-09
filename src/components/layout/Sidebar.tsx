@@ -34,6 +34,7 @@ const Sidebar = () => {
         <Sider
             breakpoint="lg"
             collapsedWidth="0"
+            style={{ height: "100vh", position: "sticky", top: "0", left: "0" }}
         >
             <div style={{ color: "white", textAlign: "center", height: "4rem", display: "flex", alignItems: "center", justifyContent: "center" }}>
                 <h1>Ahmed University</h1>

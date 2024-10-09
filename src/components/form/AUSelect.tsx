@@ -1,24 +1,24 @@
 import React from "react";
 import { Form, Select } from "antd";
+import { Controller } from "react-hook-form";
 
+type TAUSelectProps = {
+    label: string;
+    name: string;
+    options: { value: string; label: string; disabled?: boolean }[]
+}
 
-const AUSelect = ({label}) => {
-    const handleChange = (value: string) => {
-        console.log(`selected ${value}`);
-    };
+const AUSelect = ({ label, name, options }: TAUSelectProps) => {
     return (
-        <Form.Item label={label}>
+        <Controller name={name} render={({ field, fieldState: {error} }) => <Form.Item label={label}>
             <Select
                 style={{ width: "100%" }}
-                onChange={handleChange}
-                options={[
-                    { value: 'jack', label: 'Jack' },
-                    { value: 'lucy', label: 'Lucy' },
-                    { value: 'Yiminghe', label: 'yiminghe' },
-                    { value: 'disabled', label: 'Disabled', disabled: true },
-                ]}
+                {...field}
+                options={options}
+                size="large"
             />
-        </Form.Item>
+            {error && <span style={{color: "red"}}>{error.message}</span>}
+        </Form.Item>} />
     );
 };
 
