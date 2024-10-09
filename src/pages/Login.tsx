@@ -1,21 +1,23 @@
-import { Button } from "antd";
-import { FieldValues, useForm } from "react-hook-form";
+import { Button, Row } from "antd";
+import { FieldValues} from "react-hook-form";
 import { useLoginMutation } from "../redux/features/auth/authApi";
 import { useAppDispatch } from "../redux/hooks";
 import { setUser, TUser } from "../redux/features/auth/authSlice";
 import { verifyToken } from "../utils/verifyToken";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
+import AUInput from "../components/form/AUInput";
+import AUForm from "../components/form/AUForm";
 
 const Login = () => {
   const navigate = useNavigate()
   const dispatch = useAppDispatch()
-  const { register, handleSubmit } = useForm({
-    defaultValues: {
-      userId: "0001",
-      password: "admin12345"
-    }
-  })
+
+  const defaultValues = {
+    userId: "A-0002",
+    password: "admin12345"
+  }
+
 
   const [login] = useLoginMutation()
 
@@ -36,17 +38,13 @@ const Login = () => {
     }
   }
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <div>
-        <label htmlFor="id">ID:</label>
-        <input type="text" {...register('userId')} />
-      </div>
-      <div>
-        <label htmlFor="password">Password:</label>
-        <input type="text"  {...register('password')} />
-      </div>
-      <Button htmlType="submit">Login</Button>
-    </form>
+    <Row justify="center" align="middle" style={{ height: "100vh" }}>
+      <AUForm onSubmit={onSubmit} defaultValues={defaultValues}>
+        <AUInput type="text" name="userId" label="ID:" />
+        <AUInput type="text" name="password" label="Password:" />
+        <Button htmlType="submit">Login</Button>
+      </AUForm>
+    </Row>
   );
 };
 
