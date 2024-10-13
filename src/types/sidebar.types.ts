@@ -9,7 +9,7 @@ export type TSiderbarItems = {
     key: string;
     label: ReactNode;
     children?: TSiderbarItems[];
-}
+} | undefined;
 
 export type TUserPath = {
     name: string,
