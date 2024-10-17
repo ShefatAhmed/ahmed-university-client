@@ -53,6 +53,7 @@ const AddFacultyModal = ({ facultyInfo }: any) => {
     value: item._id,
     label: item.fullName,
   }));
+  console.log(facultiesOption);
 
   const handleSubmit = (data: any) => {
     const facultyData = {
