@@ -14,8 +14,8 @@ const Login = () => {
   const dispatch = useAppDispatch()
 
   const defaultValues = {
-    userId: "A-0002",
-    password: "admin12345"
+    userId: "2025030001",
+    password: "student123"
   }
 
 

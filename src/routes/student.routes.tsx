@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { TSiderbarItems } from "../types";
+import OfferedCourses from "../pages/admin/courseManagement/OfferedCourses";
 
 export const studentPaths = [
     {
@@ -8,18 +9,18 @@ export const studentPaths = [
         element: <h1>Dashboard</h1>
     },
     {
-        name: "User Management",
+        name: "Offered Courses",
         children: [
             {
-                name: "Create student",
-                path: "create-student",
-                element: <h1>Create student</h1>
-            }
+                name: 'Offered Courses',
+                path: 'offered-courses',
+                element: <OfferedCourses />,
+            },
         ]
     }
 ]
 
-export const studentSidberItems = studentPaths.reduce((acc : TSiderbarItems[], item) => {
+export const studentSidberItems = studentPaths.reduce((acc: TSiderbarItems[], item) => {
     if (item.path && item.element) {
         acc.push({
             key: item.name,
