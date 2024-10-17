@@ -1,3 +1,4 @@
+import { ItemType } from "antd/es/menu/interface";
 import { ReactNode } from "react";
 
 export type TRoute = {
@@ -5,11 +6,11 @@ export type TRoute = {
     element: ReactNode
 }
 
-export type TSiderbarItems = {
+export type TSiderbarItems = ItemType & {
     key: string;
     label: ReactNode;
     children?: TSiderbarItems[];
-} | undefined;
+};
 
 export type TUserPath = {
     name?: string,
