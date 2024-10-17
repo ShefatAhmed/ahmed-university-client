@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { TSiderbarItems } from "../types";
-import OfferedCourses from "../pages/admin/courseManagement/OfferedCourses";
+import OfferedCourses from "../pages/student/OfferedCourses";
 
 export const studentPaths = [
     {
