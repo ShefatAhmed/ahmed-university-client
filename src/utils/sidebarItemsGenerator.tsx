@@ -5,15 +5,15 @@ export const sidebarItemsGenerator = (items: TUserPath[], role: string) => {
     const sideberItems = items.reduce((acc: TSiderbarItems[], item) => {
         if (item.path && item.element) {
             acc.push({
-                key: item.name,
+                key: item.name as string,
                 label: <NavLink to={`/${role}/${item.path}`}> {item.name} </NavLink>
             });
         }
         if (item.children) {
             acc.push({
-                key: item.name,
+                key: item.name as string,
                 label: item.name,
-                children: item.children.map((child) => {
+                children: item.children.map((child) : any => {
                     if (child.name) {
                         return {
                             key: child.name,

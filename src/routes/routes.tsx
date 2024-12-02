@@ -8,37 +8,62 @@ import { studentPaths } from "./student.routes";
 import { adminPaths } from "./admin.routes";
 import ProtectedRoute from "../components/layout/ProtectedRoute";
 import ChangePassword from "../pages/ChangePassword";
-const router = createBrowserRouter([{
+import DefaultLayout from "../components/layout/DefaultLayout";
+import Home from "../pages/home/Home";
+const router = createBrowserRouter([
+  {
     path: "/",
     element: <App />,
-},
-{
+  },
+  {
     path: "/admin",
-    element: <ProtectedRoute role="admin"><App /></ProtectedRoute>,
-    children: routeGenerator(adminPaths)
-},
-{
+    element: (
+      <ProtectedRoute role="admin">
+        <App />
+      </ProtectedRoute>
+    ),
+    children: routeGenerator(adminPaths),
+  },
+  {
     path: "/faculty",
-    element: <ProtectedRoute role="faculty"><App /></ProtectedRoute>,
-    children: routeGenerator(facultyPaths)
-},
-{
+    element: (
+      <ProtectedRoute role="faculty">
+        <App />
+      </ProtectedRoute>
+    ),
+    children: routeGenerator(facultyPaths),
+  },
+  {
     path: "/student",
-    element: <ProtectedRoute role="student"><App /></ProtectedRoute>,
-    children: routeGenerator(studentPaths)
-},
-{
+    element: (
+      <ProtectedRoute role="student">
+        <App />
+      </ProtectedRoute>
+    ),
+    children: routeGenerator(studentPaths),
+  },
+  {
     path: "/login",
-    element: <Login />
-},
-{
-    path: '/change-password',
+    element: <Login />,
+  },
+  {
+    path: "/change-password",
     element: <ChangePassword />,
-},
-{
+  },
+  {
     path: "/register",
-    element: <Register />
-}
-])
+    element: <Register />,
+  },
+  {
+    path: "/home",
+    element: <DefaultLayout />,
+    children: [
+      {
+        path: "/home",
+        element: <Home />,
+      },
+    ],
+  },
+]);
 
-export default router
+export default router;
